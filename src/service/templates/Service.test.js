@@ -3,8 +3,10 @@
 
 const assert = require('assert')
 
-describe('<%= fileName %>', () => {
-  it('should exist', () => {
+describe('<%= fileName %>', function() {
+  this.timeout(50)
+  it('should exist', function() {
+    this.timeout(50)
     assert(global.app.api.services['<%= fileName %>'])
   })
 })

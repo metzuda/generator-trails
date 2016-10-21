@@ -3,10 +3,10 @@ import assert from 'yeoman-assert'
 import test from 'yeoman-test'
 import TrailsApp from 'trails'
 
-describe('trails:app', () => {
-  describe('Should create trails based on Hapi/Waterline from trails/archetype', () => {
+describe('trails:app', function() {
+  describe('Should create trails based on Hapi/Waterline from trails/archetype', function() {
     let tmpDir
-    before(() => {
+    before(function() {
       return test
         .run(path.join(__dirname, '..', '..', 'src', 'app'))
         .inTmpDir(dir => {
@@ -26,7 +26,7 @@ describe('trails:app', () => {
         .toPromise()
     })
 
-    it('Should properly create root files', () => {
+    it('Should properly create root files', function() {
       assert.file([
         '.editorconfig',
         '.gitignore',
@@ -58,9 +58,9 @@ describe('trails:app', () => {
         'LICENSE'
       ])
     })
-    it('Should properly start', done => {
+    it('Should properly start', function(done) {
       const trailsApp = new TrailsApp(require(tmpDir))
-      const stop = () => {
+      const stop = function() {
         return trailsApp.stop().then(_ => {
           done()
         }).catch(done)
@@ -69,9 +69,9 @@ describe('trails:app', () => {
     })
   })
 
-  describe('Should create trails based on Express/Waterline from trails/archetype', () => {
+  describe('Should create trails based on Express/Waterline from trails/archetype', function() {
     let tmpDir
-    before(() => {
+    before(function() {
       return test
         .run(path.join(__dirname, '..', '..', 'src', 'app'))
         .inTmpDir(dir => {
@@ -92,7 +92,7 @@ describe('trails:app', () => {
         .toPromise()
     })
 
-    it('Should properly create root files', () => {
+    it('Should properly create root files', function() {
       assert.file([
         '.editorconfig',
         '.gitignore',
@@ -124,9 +124,9 @@ describe('trails:app', () => {
         'LICENSE'
       ])
     })
-    it('Should properly start', done => {
+    it('Should properly start', function(done) {
       const trailsApp = new TrailsApp(require(tmpDir))
-      const stop = () => {
+      const stop = function() {
         return trailsApp.stop().then(_ => {
           done()
         }).catch(done)

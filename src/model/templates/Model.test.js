@@ -3,8 +3,10 @@
 
 const assert = require('assert')
 
-describe('<%= name %> Model', () => {
-  it('should exist', () => {
+describe('<%= name %> Model', function() {
+  this.timeout(50)
+  it('should exist', function() {
+    this.timeout(50)
     assert(global.app.api.models['<%= fileName %>'])
   })
 })
